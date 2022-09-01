@@ -1,7 +1,7 @@
 
 
 # SYNC LOCAL VERSION OF WEBSITE TO GU-DOMAINS SERVER
-#rsync -alvr --delete 501-project-website 
+rsync -alvr --delete 501-project-website 
 tegveerg@gtown3.reclaimhosting.com:/home/tegveerg/public_html/
 
 # PUSH GIT REPO TO THE CLOUD FOR BACKUP
