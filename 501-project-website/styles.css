@@ -10,8 +10,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #0d0099;
-    max-width:1357px;
+    background-color: #14c3bd;
+    max-width:1000px;
 }
 
 li {
@@ -22,12 +22,12 @@ li a, .dropbtn {
     display: inline-block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+    padding: 12px 14px;
+    text-decoration: underline;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: grey;
+    background-color: rgb(0, 0, 0);
 }
 
 li.dropdown {
