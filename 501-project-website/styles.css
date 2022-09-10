@@ -59,14 +59,12 @@ td {
     padding: 5px;
     text-align: left;
     width: 500px;
-    text-decoration-color: rgb(255, 255, 255);
 }
 
 tr{
     padding: 0px;
     text-align: top;
     background-color:#63666A;
-    text-decoration-color: rgb(255, 255, 255);
 }
 
 img:hover {
