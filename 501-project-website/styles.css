@@ -10,8 +10,8 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #14c3bd;
-    max-width:1000px;
+    background-color: #041E42;
+    max-width:1320px;
 }
 
 li {
@@ -20,7 +20,7 @@ li {
 
 li a, .dropbtn {
     display: inline-block;
-    color: white;
+    color: #63666A;
     text-align: center;
     padding: 12px 14px;
     text-decoration: underline;
@@ -37,12 +37,12 @@ li.dropdown {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: white;
+    background-color: #D6D2C4;
     min-width: 160px;   
 }
 
 .dropdown-content a {
-    color: black;
+    color: #D6D2C4;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -64,9 +64,9 @@ td {
 tr{
     padding: 0px;
     text-align: top;
-    background-color:#ffffff
+    background-color:#63666A
 }
 
 img:hover {
-  opacity: .6;
+  opacity: .8;
 }
