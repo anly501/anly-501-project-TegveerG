@@ -27,7 +27,7 @@ li a, .dropbtn {
 }
 
 li a:hover, .dropdown:hover .dropbtn {
-    background-color: #D6D2C4;
+    background-color: #ffffff;
 }
 
 li.dropdown {
@@ -64,7 +64,7 @@ td {
 tr{
     padding: 0px;
     text-align: top;
-    background-color:#63666A
+    background-color:#ffffff
 }
 
 img:hover {
