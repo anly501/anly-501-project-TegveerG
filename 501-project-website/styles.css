@@ -2,7 +2,7 @@
 body {
     font-family:'Montserrat';
     background-image: 'images/background image.jpeg';
-    background-color: #717984;
+    background-color: #63666A;
 }
 
 ul {
@@ -64,7 +64,7 @@ td {
 tr{
     padding: 0px;
     text-align: top;
-    background-color:#ffffff
+    background-color:#63666A
 }
 
 img:hover {
