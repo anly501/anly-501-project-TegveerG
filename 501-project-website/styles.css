@@ -16,7 +16,7 @@ ul {
 
 li {
     float: left;
-    vertical-align:middle;
+    display: inline;
 }
 
 li a, .dropbtn {
