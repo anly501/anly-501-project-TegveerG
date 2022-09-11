@@ -10,8 +10,8 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #041E42;
-    max-width:1450px;
-    height: 100px;
+    max-width:1500px;
+    height: 75px;
 }
 
 li {
@@ -25,7 +25,7 @@ li a, .dropbtn {
     padding: 14px 16px;
     text-decoration: underline;
     font-size: large;
-    line-height: 100px;
+    line-height: 75px;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
