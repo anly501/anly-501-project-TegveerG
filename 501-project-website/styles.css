@@ -26,6 +26,7 @@ li a, .dropbtn {
     text-decoration: underline;
     font-size: large;
     line-height: 50px;
+    vertical-align:middle
 }
 
 li a:hover, .dropdown:hover .dropbtn {
