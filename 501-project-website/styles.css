@@ -1,7 +1,6 @@
 
 body {
     font-family:'Montserrat';
-    background-image: 'images/background image.jpeg';
     background-color: #63666A;
 }
 
@@ -12,6 +11,7 @@ ul {
     overflow: hidden;
     background-color: #041E42;
     max-width:1450px;
+    height: 100px;
 }
 
 li {
@@ -22,8 +22,9 @@ li a, .dropbtn {
     display: inline-block;
     color: #D6D2C4;
     text-align: center;
-    padding: 12px 14px;
+    padding: 14px 16px;
     text-decoration: underline;
+    line-height: 100px;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
