@@ -37,7 +37,8 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
     display: inline-block;
-    z-index: 99
+    z-index: 99;
+    padding-top: 0;
 }
 
 .dropdown-content {
@@ -50,17 +51,17 @@ li.dropdown {
 
 .dropdown-content a {
     color: #000000;
-    padding: 12px 12px;
+    padding: 10px 10px;
     text-decoration: italic;
     display: block;
     text-align: left;
-    z-index: 99
+    z-index: 99;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: .6;
-    z-index: 99
+    z-index: 99;
 }
 
 td {
