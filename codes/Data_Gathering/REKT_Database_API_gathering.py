@@ -10,9 +10,9 @@ REKTcrypto_data_raw=newsapi.get_everything(q="+crypto",
                             to='2022-09-10',
                             language='en',sort_by='relevancy')
 
-#extracting relevant raw json data
+#extracting raw json data
 
-articles_raw=news_data_raw['articles']
+scams_raw=['articles']
 
 #converting and exporting json raw data to pandas df
 
