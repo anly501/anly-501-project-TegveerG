@@ -67,6 +67,7 @@ td {
     line-height: 25px;
     top: 0px;
     margin: 0;
+    vertical-align: top;
 }
 
 tr{
@@ -74,6 +75,18 @@ tr{
     text-align: top;
     background-color:#63666A;
     pointer-events: none;
+}
+
+figure {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; 
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+    text-align: center;
 }
 
 img:hover {
