@@ -32,13 +32,11 @@ li a, .dropbtn {
 li a:hover, .dropdown:hover .dropbtn {
     background-color: #ffffff;
     z-index: 99;
-    padding-top: 0;
 }
 
 li.dropdown {
     display: inline-block;
     z-index: 99;
-    padding-top: 0;
 }
 
 .dropdown-content {
