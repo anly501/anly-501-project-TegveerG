@@ -1,0 +1,31 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Data Gathering.md</title><style></style></head><body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Data_Gathering_0"></a>Data Gathering</h1>
+<h3 class="code-line" data-line-start=2 data-line-end=3><a id="Sources_of_Data_2"></a>Sources of Data</h3>
+<hr>
+<ol>
+<li class="has-line-data" data-line-start="5" data-line-end="6"><a href="https://www.rdocumentation.org/packages/twitteR/versions/1.1.9">Twitter (R API)</a></li>
+<li class="has-line-data" data-line-start="6" data-line-end="7"><a href="https://newsapi.org/docs/client-libraries/python">News Media (Python API)</a></li>
+<li class="has-line-data" data-line-start="7" data-line-end="9"><a href="https://github.com/defiyield-app/api-docs/blob/main/README_Rekt_Database.md">REKT Database Public API - The largest database of crypto hacks, scams, exploits and rug pulls</a></li>
+</ol>
+<h3 class="code-line" data-line-start=9 data-line-end=10><a id="Tools_Used_to_Gather_Data_9"></a>Tools Used to Gather Data</h3>
+<hr>
+<p class="has-line-data" data-line-start="12" data-line-end="13">For this project, data will be collected using Python, R, and Google Chrome Extensions* through:</p>
+<ol>
+<li class="has-line-data" data-line-start="14" data-line-end="15">APIs: Application Programming Interface</li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="15" data-line-end="16">Used to refer to libraries used internally by respective organizations</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">Now hijacked by developers to mean interface to access external data</li>
+<li class="has-line-data" data-line-start="17" data-line-end="19">Most web-based services have a public-facing API (Twitter, Amazon,<br>
+Google, Spotify, etc)</li>
+<li class="has-line-data" data-line-start="19" data-line-end="20">Having used the twitteR API in the Bootcamp, I could easily scrape just more than a 1000 tweets with the query “crypto + crime”. I did clean the data using the same functions from the Bootcamp assignments and, eventually, got left with a dataset of about 500 observations. I shall revisit my data cleaning procedure again and, importantly, I do have my raw tweets file saved.</li>
+<li class="has-line-data" data-line-start="20" data-line-end="21">The NEWSAPI was easy to follow and I obtained content from a hundred articles. However, playing around with the query parameter to obtain relevant articles was a bit time-consuming. I tried several queries with logical operators but I obtained no responses. I, then, only queried for the word “crypto” and found several relevant articles that described crypto attacks. I will hold onto this CSV file for now but I may discard it later because I came across a very potent database, tailored exactly to my topic (read below!)</li>
+<li class="has-line-data" data-line-start="21" data-line-end="23">While brainstorming data sources for my project, I only had popular social media and news media sources in mind. Surfing the web for hours with key words pertaining to my topic was indispensable to coming across to the REKT Database offered by <a href="https://defiyield.app/">Defiyield App</a>. As per Defiyield, this is the largest database of crypto hacks, including scams, exploits and rug pulls etc. The database, when not filtered, includes 3049 observations, all of which are linked to some kind of crypto attack. Some of the main fields that I wish to include my analysis are dollar funds lost and returned, description of the crime (synopsis provided by Defiyield along with links to news sources for proof of issue occurrence), crypto token(s) and exchanges affected by the issue, and type of scam. I did access the API through Postman and got responses for the first 100 observations, but I am yet to write Python code to paginate through all pages of the database.</li>
+</ul>
+<ol start="2">
+<li class="has-line-data" data-line-start="23" data-line-end="24">*Instant Web Scraping Extension</li>
+</ol>
+<ul>
+<li class="has-line-data" data-line-start="24" data-line-end="26">I employed this to play around with the REKT Database website. I was successful in obtaining all but one (very important) field of the database, description of attack. However, I shall soon employ the REKT Database API in Python to obtain the complete database! The Instant Web Scraping Extension is only a short-term fix to getting my hands dirty while obtaining data. Eventually, after using the extension, I produced a CSV file of about 3000 observations and 7 variables.</li>
+</ul>
+</body></html>

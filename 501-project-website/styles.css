@@ -64,10 +64,10 @@ td {
     text-align: center;
     width: 500px;
     pointer-events: none;
-    line-height: 25px;
     top: 0px;
     margin: 0;
     vertical-align: top;
+    line-height: 1.6;
 }
 
 tr{
