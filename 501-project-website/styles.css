@@ -37,6 +37,7 @@ li a:hover, .dropdown:hover .dropbtn {
 
 li.dropdown {
     display: inline-block;
+    z-index: 99
 }
 
 .dropdown-content {
