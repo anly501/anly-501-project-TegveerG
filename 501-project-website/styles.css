@@ -64,12 +64,14 @@ td {
     padding: 5px;
     text-align: left;
     width: 500px;
+    pointer-events: none;
 }
 
 tr{
     padding: 0px;
     text-align: top;
     background-color:#63666A;
+    pointer-events: none;
 }
 
 img:hover {
