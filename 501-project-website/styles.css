@@ -46,7 +46,6 @@ li.dropdown {
     position: absolute;
     background-color: #D6D2C4;
     min-width: 160px;   
-    z-index: 99
 }
 
 .dropdown-content a {
@@ -55,13 +54,11 @@ li.dropdown {
     text-decoration: italic;
     display: block;
     text-align: left;
-    z-index: 99;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
     opacity: .6;
-    z-index: 99;
 }
 
 td {
