@@ -18,8 +18,7 @@ Regardless, cryptocurrencies’ promises of egalitarian finance have so far prov
 
 [![](../images/Intro_Why_Topic_Matters1.jpeg)](https://www.statista.com/chart/12707/largest-known-crypto-currency-thefts/)
 <br /><br />
-<br /><br />
-**Value of cryptocurrency theft worldwide from 2019 to Present(in trillion U.S. dollars:**
+**Value of cryptocurrency theft worldwide from 2019 to Present(in trillion U.S. dollars:** <br /><br />
 [![](../images/Crypto_Mkt_Cap.jpeg)](https://www.statista.com/statistics/730876/cryptocurrency-maket-value/)
 
 ### Past Research 
@@ -32,8 +31,9 @@ A Multi-Classifier Network-Based Crypto Ransomware Detection System
 ### Different Points of Views in the Literature:
 ---
 
-### What Am I Exploring?
 
+
+### What Am I Exploring?
 
 Differing sentiments within the media and public about crypto security in the long-term.
 

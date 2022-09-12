@@ -1,0 +1,85 @@
+---
+title: "R_TwitterAPI_Code"
+output: html_document: default
+date: "2022-09-12"
+---
+
+```{r initalsetup, include = FALSE, message=FALSE, warning=FALSE}
+### Load libraries here
+library("selectr")
+library("rvest")
+library("xml2")
+library(rtweet) # for scraping tweets
+library(wordcloud2) # for generating really cool looking wordclouds
+library(tm) # for text mining
+library(tidyverse) 
+library(twitteR)
+library(ROAuth)
+library(jsonlite)
+
+consumerKey = '05RsErguXYWBfMpmmZdZlbV6P'
+consumerSecret = 'Vr50qRwylJGRr1TtANB6RalqT90dTuq8hlBvoT8WCnYTS5Ni70'
+access_Token = '1512312564-pbSid3qWEdigyAalZcII1d2ZF4rQ2WkiYfHf60k'
+access_Secret = 'O9XEwsekAJLKkn0HxZ0VhOE7sIJ9VQawNgde4hXhkE0rb'
+
+### Properly parse our API keys 
+
+consumerKey=as.character(consumerKey)
+consumerSecret=as.character(consumerSecret)
+access_Token=as.character(access_Token)
+access_Secret=as.character(access_Secret)
+
+##################################################################
+### Ensure the right URLs are stored to pull data
+
+requestURL='https://api.twitter.com/oauth/request_token'
+accessURL='https://api.twitter.com/oauth/access_token'
+authURL='https://api.twitter.com/oauth/authorize'
+
+```
+
+```{r scrape,message=FALSE,warning=FALSE, cache.comments=FALSE,comment=FALSE}
+# setup OAuth and scrape 1,000 tweets relating to crypto and crime
+setup_twitter_oauth(consumerKey,consumerSecret,access_Token,access_Secret)
+Search1<-twitteR::searchTwitter(searchString="crypto + crime", n=1000, lang = "en", resultType="mixed") # mixed results includes popular and real time results
+Raw_Tweets_DF <- twListToDF(Search1)
+
+########## Place Raw Tweets in a new file ###################
+FName1 = "Crypto_Tweets_R_raw.txt"
+## Start the file
+MyFile1 <- file(FName1)
+## Write Tweets to file
+cat(unlist(Raw_Tweets_DF), " ", file=MyFile1, sep="\n")
+close(MyFile1)
+
+Raw_Tweets_DF<- twListToDF(Search1)
+
+# cleaning raw tweets dataframe
+
+Raw_Tweets_DF$text <- gsub("[^[:alnum:][:blank:]?&/\\-]", "",Raw_Tweets_DF$text) # remove alphanumeric characters 
+Raw_Tweets_DF$text <- gsub("https\\S*", "",Raw_Tweets_DF$text) # remove hyperlinks
+Raw_Tweets_DF$text <- gsub("&amp", "and",Raw_Tweets_DF$text) # replace ampersand symbol with "and"
+```
+
+```{r clean data,message=FALSE,warning=FALSE, cache.comments=FALSE,comment=FALSE}
+#create a corpus to allow us clean the text column with tm library
+tweets.corpus <- Corpus(VectorSource(TweetsDF$text))
+
+tweets.corpus <- tweets.corpus %>%
+  tm_map(removeNumbers) %>% # removes numbers from text
+  tm_map(removePunctuation) %>% # removes punctuation from text
+  tm_map(stripWhitespace) %>% # trims the text of whitespace
+  tm_map(content_transformer(tolower)) %>% # convert text to lowercase
+  tm_map(removeWords,stopwords("english")) %>% # remove stopwords
+  tm_map(removeWords,stopwords("SMART")) # remove stopwords not removed from previous line
+
+########## Place Clean Tweets in a new file ###################
+
+FName2 = "Crypto_Tweets_R_clean.txt"
+## Start the file
+MyFile2 <- file(FName2)
+## Write Tweets to file
+Clean_Tweets_DF <- data.frame(text = sapply(tweets.corpus, as.character), stringsAsFactors = FALSE)
+cat(unlist(Clean_Tweets_DF), " ", file=MyFile2, sep="\n")
+close(MyFile2)
+```
