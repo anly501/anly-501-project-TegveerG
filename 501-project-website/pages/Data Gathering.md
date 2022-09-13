@@ -1,6 +1,6 @@
 # Data Gathering
 
-[![](../images/Data_Gathering_REST_API.jpeg)](https://www.astera.com/type/blog/rest-api-definition/)
+[![](../images/Data_Gathering_REST_API.jpeg)](https://www.altexsoft.com/blog/engineering/what-is-api-definition-types-specifications-documentation/)
 
 ### Sources of Data
 ---
