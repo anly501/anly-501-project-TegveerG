@@ -4,6 +4,12 @@ body {
     background-color: #63666A;
 }
 
+a {
+    color: #337ab7;
+    text-decoration: none;
+    background-color: transparent;
+}
+
 ul {
     list-style-type: none;
     margin: 0;
