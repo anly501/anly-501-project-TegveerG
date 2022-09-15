@@ -95,6 +95,16 @@ figure figcaption {
     text-align: center;
 }
 
+b {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; 
+}
+
+b img {
+    vertical-align: top;
+}
+
 img:hover {
   opacity: .6;
 }
