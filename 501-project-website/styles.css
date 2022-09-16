@@ -75,7 +75,7 @@ td {
     margin: 0;
     vertical-align: top;
     line-height: 1.6;
-    outline: 0;
+    outline: none;
 }
 
 tr{
@@ -83,7 +83,7 @@ tr{
     text-align: top;
     background-color:#63666A;
     pointer-events: none;
-    outline: 0;
+    outline: none;
 }
 
 figure {
@@ -96,14 +96,14 @@ figure img {
 }
 figure figcaption {
     text-align: center;
-    outline: 0;
+    outline: none;
 }
 
 b {
     display: inline-block;
     border: 1px dotted gray;
     margin: 20px; 
-    outline: 0;
+    outline: none;
 }
 
 b img {
