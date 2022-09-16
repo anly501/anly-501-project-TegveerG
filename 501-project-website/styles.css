@@ -33,6 +33,7 @@ li a, .dropbtn {
     padding: 14px 16px;
     text-decoration: underline;
     font-weight: bold;
+    outline: 0;
 }
 
 li a:hover, .dropdown:hover .dropbtn {
@@ -74,6 +75,7 @@ td {
     margin: 0;
     vertical-align: top;
     line-height: 1.6;
+    outline: 0;
 }
 
 tr{
@@ -81,6 +83,7 @@ tr{
     text-align: top;
     background-color:#63666A;
     pointer-events: none;
+    outline: 0;
 }
 
 figure {
@@ -93,12 +96,14 @@ figure img {
 }
 figure figcaption {
     text-align: center;
+    outline: 0;
 }
 
 b {
     display: inline-block;
     border: 1px dotted gray;
     margin: 20px; 
+    outline: 0;
 }
 
 b img {
