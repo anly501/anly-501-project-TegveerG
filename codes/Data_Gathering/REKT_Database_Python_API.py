@@ -10,5 +10,5 @@ response = requests.request("GET", url, headers=headers, data=payload)
 
 res_list = response.json()['items'] # items key is pertinent
 
-with open('REKT_Database_Python_API.json', 'w') as json_file:
+with open('../../data/Raw Data/Python_REKT_Database_API/REKT_Database_Python_API.json', 'w') as json_file:
     json.dump(res_list, json_file) 
