@@ -44,42 +44,50 @@ setup_twitter_oauth(consumerKey,consumerSecret,access_Token,access_Secret)
 Search1<-twitteR::searchTwitter(searchString="crypto + crime", n=1000, lang = "en", resultType="mixed") # mixed results includes popular and real time results
 Raw_Tweets_DF <- twListToDF(Search1)
 
-########## Place Raw Tweets in a new file ###################
-FName1 = "Crypto_Tweets_R_raw.txt"
+########## Place Raw Tweets DF in a new file ###################
+FName1 = "../../data/Raw Data/R_Twitter_API/Crypto_Tweets_R_raw.txt"
 ## Start the file
 MyFile1 <- file(FName1)
 ## Write Tweets to file
-cat(unlist(Raw_Tweets_DF), " ", file=MyFile1, sep="\n")
+cat(unlist(Raw_Tweets_DF$Text), " ", file=MyFile1, sep="\n")
 close(MyFile1)
 
-Raw_Tweets_DF<- twListToDF(Search1)
+########## Place only Raw Tweets Text in a new file ###################
+FName1 = "../../data/Raw Data/R_Twitter_API/Crypto_Tweets_R_raw_text.txt"
+## Start the file
+MyFile1 <- file(FName1)
+## Write Tweets to file
+cat(unlist(Raw_Tweets_DF$Text), " ", file=MyFile1, sep="\n")
+close(MyFile1)
+
+#Raw_Tweets_DF<- twListToDF(Search1)
 
 # cleaning raw tweets dataframe
 
-Raw_Tweets_DF$text <- gsub("[^[:alnum:][:blank:]?&/\\-]", "",Raw_Tweets_DF$text) # remove alphanumeric characters 
-Raw_Tweets_DF$text <- gsub("https\\S*", "",Raw_Tweets_DF$text) # remove hyperlinks
-Raw_Tweets_DF$text <- gsub("&amp", "and",Raw_Tweets_DF$text) # replace ampersand symbol with "and"
+#Raw_Tweets_DF$text <- gsub("[^[:alnum:][:blank:]?&/\\-]", "",Raw_Tweets_DF$text) # remove alphanumeric characters 
+#Raw_Tweets_DF$text <- gsub("https\\S*", "",Raw_Tweets_DF$text) # remove hyperlinks
+#Raw_Tweets_DF$text <- gsub("&amp", "and",Raw_Tweets_DF$text) # replace ampersand symbol with "and"
 ```
 
 ```{r clean data,message=FALSE,warning=FALSE, cache.comments=FALSE,comment=FALSE}
 #create a corpus to allow us clean the text column with tm library
-tweets.corpus <- Corpus(VectorSource(TweetsDF$text))
+#tweets.corpus <- Corpus(VectorSource(TweetsDF$text))
 
-tweets.corpus <- tweets.corpus %>%
-  tm_map(removeNumbers) %>% # removes numbers from text
-  tm_map(removePunctuation) %>% # removes punctuation from text
-  tm_map(stripWhitespace) %>% # trims the text of whitespace
-  tm_map(content_transformer(tolower)) %>% # convert text to lowercase
-  tm_map(removeWords,stopwords("english")) %>% # remove stopwords
-  tm_map(removeWords,stopwords("SMART")) # remove stopwords not removed from previous line
+#tweets.corpus <- tweets.corpus %>%
+  #tm_map(removeNumbers) %>% # removes numbers from text
+  #tm_map(removePunctuation) %>% # removes punctuation from text
+  #tm_map(stripWhitespace) %>% # trims the text of whitespace
+  #tm_map(content_transformer(tolower)) %>% # convert text to lowercase
+  #tm_map(removeWords,stopwords("english")) %>% # remove stopwords
+  #tm_map(removeWords,stopwords("SMART")) # remove stopwords not removed from previous line
 
 ########## Place Clean Tweets in a new file ###################
 
-FName2 = "Crypto_Tweets_R_clean.txt"
+#FName2 = "Crypto_Tweets_R_clean.txt"
 ## Start the file
-MyFile2 <- file(FName2)
+#MyFile2 <- file(FName2)
 ## Write Tweets to file
-Clean_Tweets_DF <- data.frame(text = sapply(tweets.corpus, as.character), stringsAsFactors = FALSE)
-cat(unlist(Clean_Tweets_DF), " ", file=MyFile2, sep="\n")
-close(MyFile2)
+#Clean_Tweets_DF <- data.frame(text = sapply(tweets.corpus, as.character), stringsAsFactors = FALSE)
+#cat(unlist(Clean_Tweets_DF), " ", file=MyFile2, sep="\n")
+#close(MyFile2)
 ```

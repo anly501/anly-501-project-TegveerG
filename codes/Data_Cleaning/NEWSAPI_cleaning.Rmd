@@ -1,0 +1,26 @@
+---
+title: "NEWSAPI_R_Cleaning"
+output: html_document: default
+date: "2022-09-26"
+---
+
+```{r initalsetup, include = FALSE, message=FALSE, warning=FALSE}
+### Load libraries here
+library("selectr")
+library("rvest")
+library("xml2")
+library(wordcloud2) 
+library(tidyverse) 
+library(jsonlite)
+
+news_df <- read_csv('../../data/Raw Data/Python_News_API/NewsApi_raw.csv')
+
+news_api_df.head(5) # visualize first 5 instances of raw data
+
+#Checking for NaN values present in data
+news_api_df.isna().sum()
+
+news_api_df.loc[news_api_df['author'].isnull()]
+```
+
+Only the "author" variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
