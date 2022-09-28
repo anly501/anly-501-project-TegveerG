@@ -2,7 +2,7 @@
 
 [![](../images/data_cleaning.jpeg)](https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/)
 
-### Data To Be Explored
+## Data To Be Explored
 ---
 
 1. REKT Database
@@ -13,20 +13,22 @@
 
 3. News API
 
-
-### REKT Database Univariate Analysis: Numerical Variables
+## REKT Database Univariate Analysis: Numerical Variables
 ---
 
-### REKT Database Univariate Analysis: Categorical Variables
+[![](../images/REKT_database.jpeg)](https://defiyield.app/rekt-database)
+
+
+## REKT Database Univariate Analysis: Categorical Variables
 ---
 
-### REKT Database Univariate Analysis: Outlier Detection
+## REKT Database Univariate Analysis: Outlier Detection
 ---
 
-### REKT Database Bivariate Analysis : Numerical-Numerical
+## REKT Database Bivariate Analysis : Numerical-Numerical
 ---
 
-### Twitter Sentiment Analysis from Vader
+## Twitter Sentiment Analysis from Vader
 ---
 
 

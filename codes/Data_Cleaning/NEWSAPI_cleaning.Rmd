@@ -15,12 +15,38 @@ library(jsonlite)
 
 news_df <- read_csv('../../data/Raw Data/Python_News_API/NewsApi_raw.csv')
 
-news_api_df.head(5) # visualize first 5 instances of raw data
+news_df <- subset(news_df, select = -c(...1)) # remove automatically added index column
+
+print(head(news_df)) # visualize first 5 instances of raw data
 
 #Checking for NaN values present in data
-news_api_df.isna().sum()
+colSums(is.na(news_df))
 
-news_api_df.loc[news_api_df['author'].isnull()]
+news_df <- subset(news_df, select = -c(author))
 ```
 
 Only the "author" variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
+
+```{r droppingurls, include = FALSE, message=FALSE, warning=FALSE}
+print(head(news_df)) # visualize first 5 instances of raw data
+
+# We should also drop url columns as they won't help us in our analyses
+
+news_df <- subset(news_df, select = -c(url, urlToImage))  
+```
+
+We must also clean the source column because it contains dictionary values, including 2 keys. We only need the name of the publishing organization and, hence, string operations will help us parse the column correctly.
+
+```{r cleaningsource, include = FALSE, message=FALSE, warning=FALSE}
+# We should also drop url columns as they won't help us in our analyses
+news_df$source <- gsub("[^:]*,[^:]*", "",news_df$source)
+news_df$source <- gsub("'id'::", "",news_df$source)
+news_df$source <- gsub("\\{|\\}", "",news_df$source)
+news_df$source <- gsub("'", "",news_df$source)
+```
+
+Exporting Cleaned Data
+
+```{r cleaningsource, include = FALSE, message=FALSE, warning=FALSE}
+write.csv(news_df, '../../data/Clean Data/NewsApi_clean.csv')
+```
