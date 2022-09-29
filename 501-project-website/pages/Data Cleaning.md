@@ -2,7 +2,7 @@
 
 [![](../images/data_cleaning.jpeg)](https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/)
 
-[## REKT Database (Python)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
+[REKT Database (Python)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
 ---
 
 [**Raw Data (first 5 rows)**](https://github.com/anly501/anly-501-project-TegveerG/tree/main/data/Raw%20Data/Python_REKT_Database_API)
@@ -526,7 +526,7 @@ After all these above steps were completed, we come up with a cleaned data like 
   </tbody>
 </table>
 
-[## Twitter Text (Python)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/Twitter_API_cleaning.ipynb)
+[Twitter Text (Python)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/Twitter_API_cleaning.ipynb)
 ---
 
 1. Count Vectorizer for Analyzing Cosine Similarity 
@@ -535,11 +535,8 @@ After all these above steps were completed, we come up with a cleaned data like 
 
 3. Using the processed text from when Perplexity was applied, the same text can be used for Sentiment Analysis using Vader. EDA page with more detailed content!
 
-[## News Text (R)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd)
+[News Text (R)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd)
 ---
 
 Record data cleaned by subsetting variables that were not useful to EDA or modeling. Only the `author` variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
 We must also clean the `source` column using `gsub()` because it contains dictionary values, including 2 keys, in the form of strings. We only need the name of the publishing organization and, hence, string operations will help us parse the column correctly.
-
-
-
