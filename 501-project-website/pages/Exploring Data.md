@@ -1,6 +1,6 @@
 # Exploring Data
 
-[![](../images/data_cleaning.jpeg)](https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/)
+[![](../images/EDA.jpeg)](https://pub.towardsai.net/overview-of-exploratory-data-analysis-with-haberman-dataset-6b7e2cf73a58)
 
 ## Data To Be Explored
 ---
