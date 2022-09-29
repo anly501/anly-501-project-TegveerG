@@ -246,8 +246,8 @@ We also have to clean a vital text variable in our dataset that will be used in 
 
 HOWEVER, a crucial step was missing, which was that of getting rid of all the NaN's present in the `description` variable. This variable itself has 285 missing values, but when we add the  `funds_lost` variable in the mix, the total missing values is only 284. The `funds_lost`variable is a highly valuable attribute and, possibly, a target variable for modeling. We cannot get rid of even that single observation that has a `funds_lost` value but no description. Therefore, seen in the two screenshots below, we could not get rid of ALL NaN's present in the `funds_lost` variable and `description` variable.
 
-![](../images/REKT_Database_Rows_Removed)
-![](../images/87th_highest_funds_lost_observation_missing_description)
+![](../images/REKT_Database_Rows_Removed.jpeg)
+![](../images/87th_highest_funds_lost_observation_missing_description.jpeg)
 
 The 284 rows were the only ones discarded while cleaning the dataset. Yes, there are missing values present in other rows, but we have done well to eliminate most, if not all, unnecessary data for EDA!
 
