@@ -536,7 +536,7 @@ After all these above steps were completed, we come up with a cleaned data like 
 
 3. Using the processed text from when Perplexity was applied, the same text can be used for Sentiment Analysis using Vader. EDA page with more detailed content!
 
-[News Text (R)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd)
+[News Text (R Code)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd)
 ---
 
 Record data cleaned by subsetting variables that were not useful to EDA or modeling. Only the `author` variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
