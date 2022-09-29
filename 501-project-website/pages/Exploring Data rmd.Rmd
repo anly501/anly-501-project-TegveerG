@@ -1,16 +1,10 @@
 ---
 title: "Exploring Data"
-output: 
-  html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
-    df_print: paged
+output: rmdformats::robobook
 ---
 [![](../images/EDA.jpeg)](https://pub.towardsai.net/overview-of-exploratory-data-analysis-with-haberman-dataset-6b7e2cf73a58)
 
-### Data To Be Explored
+Data To Be Explored
 ---
 
 1. [REKT Database](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Exploring_Data/EDA_REKT_Record_Data.ipynb)
@@ -21,7 +15,7 @@ output:
 
 3. News API (EDA To Be Posted Soon!)
 
-### REKT Database Univariate Analysis: Numerical Variables
+REKT Database Univariate Analysis: Numerical Variables
 ---
 
 [![](../images/Funds_Lost_USD_Moments.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
@@ -34,7 +28,7 @@ output:
 
 [![](../images/Log_Funds_Returned_Moments.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
 
-### REKT Database Univariate Analysis: Categorical Variables
+REKT Database Univariate Analysis: Categorical Variables
 ---
 
 [![](../images/Attack_Day_of_Week_Moments.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
@@ -43,7 +37,7 @@ output:
 
 [![](../images/Scam_Types_Barplot.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
 
-### REKT Database Univariate Analysis: Outlier Detection
+REKT Database Univariate Analysis: Outlier Detection
 ---
 
 [![](../images/Outlier_Funds_Returned_USD.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
@@ -54,13 +48,13 @@ output:
 
 [![](../images/Outliers_Drop_Funds_Lost_USD.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
 
-### REKT Database Bivariate Analysis : Numerical-Numerical
+REKT Database Bivariate Analysis : Numerical-Numerical
 ---
 
 [![](../images/Bivariate_Funds_Date_Corr.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
 
 
-### Twitter Sentiment Analysis from Vader
+Twitter Sentiment Analysis from Vader
 ---
 
 [![](../images/Top_Positive_Words_Vader.jpeg)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)

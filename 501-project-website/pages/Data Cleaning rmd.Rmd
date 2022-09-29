@@ -5,9 +5,26 @@ output:
     toc: true
     toc_float:
       collapsed: false
-      smooth_scroll: false
+      smooth_scroll: True
     df_print: paged
 ---
+
+<style>
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: green;
+}
+
+ a:hover {
+    color: blue;
+}
+
+</style>
+
+
 [![](../images/data_cleaning.jpeg)](https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/)
 
 [REKT Database (Python)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb)
@@ -44,7 +61,7 @@ For variables identified as Float type, the summary is as follows:
 
 The features from extracted are `month_of_attack`, `day_of_week_of_attack`, and `day_of_year_of_attack` from the raw date variable. 
 
-### Removing HTML Tags from Description variable
+***Removing HTML Tags from Description variable***
 
 We also have to clean a vital text variable in our dataset that will be used in NLP tasks later. This is the `description` variable, which verbosely lays out the proof of the attack taking place and verified links to where the reader can obtain more information. In order to process this column, I made use of the Beautiful Soup library's `.get_text` function and passed it in a for loop that looped through the 'description' variable and appended processed outputs to the `REKT_df` data frame. 
 
