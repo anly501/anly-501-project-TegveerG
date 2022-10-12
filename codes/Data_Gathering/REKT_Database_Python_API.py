@@ -1,7 +1,9 @@
 import requests
 import json
 
-url = "https://api.s.defiyield.app/scam_database?sortField=fundsLost&sort=desc&sortDirection=desc&limit=3055&page=1"
+# updated limit or num rows to most recent (10/10/2022) data
+
+url = "https://api.s.defiyield.app/scam_database?sortField=fundsLost&sort=desc&sortDirection=desc&limit=3076&page=1"
 
 payload={}
 headers = {}

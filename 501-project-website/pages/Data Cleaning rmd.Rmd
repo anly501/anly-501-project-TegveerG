@@ -34,9 +34,7 @@ a:visited {
 
 ```{r rawREKT, echo=FALSE}
 library(jsonlite)
-
 rekt_raw <- read_json("../../data/Raw Data/Python_REKT_Database_API/REKT_Database_Python_API.json", simplifyVector = TRUE)
-
 head(rekt_raw, 5)
 ```
 
@@ -79,7 +77,6 @@ After all these above steps were completed, we come up with a cleaned data like 
 ```{r cleanREKT, echo=FALSE}
 rekt_clean <- read.csv("../../data/Clean Data/REKT_Database_Clean_Python.csv")
 rekt_clean <- subset(rekt_clean, select = -c(X))
-
 head(rekt_clean, 5)
 ```
 

@@ -45,12 +45,7 @@ Search1<-twitteR::searchTwitter(searchString="crypto + crime", n=1000, lang = "e
 Raw_Tweets_DF <- twListToDF(Search1)
 
 ########## Place Raw Tweets DF in a new file ###################
-FName1 = "../../data/Raw Data/R_Twitter_API/Crypto_Tweets_R_raw.txt"
-## Start the file
-MyFile1 <- file(FName1)
-## Write Tweets to file
-cat(unlist(Raw_Tweets_DF$Text), " ", file=MyFile1, sep="\n")
-close(MyFile1)
+write.csv(Raw_Tweets_DF,"../../data/Raw Data/R_Twitter_API/Crypto_Tweets_R_raw.csv", row.names = FALSE)
 
 ########## Place only Raw Tweets Text in a new file ###################
 FName1 = "../../data/Raw Data/R_Twitter_API/Crypto_Tweets_R_raw_text.txt"

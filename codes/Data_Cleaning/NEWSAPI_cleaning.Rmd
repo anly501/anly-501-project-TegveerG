@@ -38,7 +38,7 @@ news_df <- subset(news_df, select = -c(url, urlToImage))
 We must also clean the source column because it contains dictionary values, including 2 keys. We only need the name of the publishing organization and, hence, string operations will help us parse the column correctly.
 
 ```{r cleaningsource, include = FALSE, message=FALSE, warning=FALSE}
-# We should also drop url columns as they won't help us in our analyses
+# Removing dictionary values from the source column
 news_df$source <- gsub("[^:]*,[^:]*", "",news_df$source)
 news_df$source <- gsub("'id'::", "",news_df$source)
 news_df$source <- gsub("\\{|\\}", "",news_df$source)
