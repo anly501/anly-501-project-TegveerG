@@ -12,7 +12,7 @@ output:
 
 [![](../images/multinomialNB.jpeg)](https://stackoverflow.com/questions/36835094/understanding-algorithm-multinomial-naive-bayes)
 
-## Table 1: Links to Github Repository
+Table 1: Links to Github Repository
 ---
 ```{r create_tbl, echo=FALSE, message=FALSE}
 library(gt)
