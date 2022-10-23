@@ -12,7 +12,6 @@ jupyter: python3
 
 # Binary Classification of Text Data (Twitter and News API) Using SVM
 
-## Data Import and Cleaning and Exploration.
 The purpose of this tab is to examine the performance of 4 different SVM kernels, namely Linear, Polynomial, RBF, and Sigmoid, on our cleaned text data gathered from Twitter and News APIs. If we recall, the Twitter and News text sentiment analyses represented that, on average, the tweets are composed of text with greater negative sentiment than that of the news content. Therefore, our data has a fair mix of positive and negative text, which means that our labels will not be heavily imbalanced!  
 
 ### Methods
