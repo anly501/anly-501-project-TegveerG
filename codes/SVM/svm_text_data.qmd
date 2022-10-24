@@ -30,14 +30,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classification_report
 import warnings
-warnings.filterwarnings('always')
+warnings.filterwarnings("ignore")
 ```
 
 ### Exploring the dataset.
 
 ```{python}
 #| vscode: {languageId: python}
-# Import data and show forst 5 rows
+# Import data and show first 5 rows
 tweets_news_clean = pd.read_csv("../../data/Clean Data/Clean_Tweets_News_Merged.csv", index_col=[0])
 ```
 

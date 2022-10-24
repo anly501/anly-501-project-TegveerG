@@ -69,7 +69,7 @@ Now we have all records where funds lost != 0 and predictor with balanced classe
 
 As per REKT Database, Honeypot attacks, Rugpull attacks, Abandoned scams, and the Kronos Dao project (classified as "other") can be pooled together as Exit Scams and all other attacks can be pooled together as Exploits. We, therefore, will conduct Naive Bayes with a binary predictor. Moreover, after pooling together the respective scam types and treating predictor imbalance, the class frequencies of our desired target variable is: n(Exit Scam) = 380 and n(Exploit) = 435
 
-taking log of funds_lost and funds_returned to obtain normal distrib assumption for NB
+Taking log of funds_lost and funds_returned to obtain normal distribution assumption for Naive Bayes.
 
 ```{r logfunds} 
 # Removing dictionary values from the source column
@@ -100,6 +100,11 @@ data_nb$day_of_week_of_attack <-as.factor(data_nb$day_of_week_of_attack)
 data_nb$day_of_year_of_attack <- as.integer(data_nb$day_of_year_of_attack)
 data_nb$scam_type_grouped <-as.factor(data_nb$scam_type_grouped)
 data_nb <- data_nb[sample(1:nrow(data_nb)), ] # shuffle rows
+```
+
+```{r exportcsv} 
+# Exporting the pre-processed dataframe into a CSV file for comparing other classifiers
+write.csv(data_nb, "../../data/Clean Data/REKT_Database_Clean_Classification.csv")
 ```
 
 ```{r traintestsplit} 
@@ -180,12 +185,12 @@ ggplotConfusionMatrix(cfm_discretized_train)
 cfm_discretized_train
 ```
 
-Training model accuracy after discretizing continuous variables using k-means clustering is around 74%
+Training model accuracy after discretizing continuous variables using k-means clustering is around 75%
 
 ```{r discretizedtest, warning=FALSE, message=FALSE} 
 cfm_discretized_test <- confusionMatrix(predict(discretized_NB_model, test_discretized)$class, test_discretized$Scam_Type)
 ggplotConfusionMatrix(cfm_discretized_test)
-cfm_discretized_train
+cfm_discretized_test
 ```
 
-Test model accuracy after discretizing continuous variables using k-means clustering is around 78%
+Test model accuracy after discretizing continuous variables using k-means clustering is around 73%
