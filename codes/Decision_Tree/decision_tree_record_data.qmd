@@ -83,14 +83,14 @@ sns.pairplot(df,hue="scam_type_grouped", diag_kind='kde')
 ### Split the dataset into training and testing sets
 
 ```{python}
-# INSERT CODE TO MAKE DATA-FRAMES (or numpy arrays) (X,Y) WHERE Y="target" COLUMN and X="everything else"
+# MAKE DATA-FRAMES (or numpy arrays) (X,Y) WHERE Y="target" COLUMN and X="everything else"
 
 X = df.drop('scam_type_grouped', axis=1)
 y = df['scam_type_grouped']
 ```
 
 ```{python}
-# INSERT CODE TO PARTITION THE DATASET INTO TRAINING AND TEST SETS
+# PARTITION THE DATASET INTO TRAINING AND TEST SETS
 
 from sklearn.model_selection import train_test_split
 
@@ -100,7 +100,7 @@ x_train, x_test, y_train, y_test = train_test_split(X, y,
 ```
 
 ```{python}
-# INSERT CODE, AS A CONSISTENCY CHECK, TO PRINT THE TYPE AND SHAPE OF x_train, x_test, y_train, y_test
+# PRINT THE TYPE AND SHAPE OF x_train, x_test, y_train, y_test
 
 print("Shape of x_train is: ", x_train.shape)
 print("Shape of x_test is: ",x_test.shape)
@@ -168,7 +168,7 @@ x_train['scamNetworks'] = label_encoder.fit_transform(x_train['scamNetworks'])
 ```
 
 ```{python}
-#### INSERT CODE BELOW TO TRAIN A SKLEARN DECISION TREE MODEL ON x_train,y_train 
+#### TRAIN A SKLEARN DECISION TREE MODEL ON x_train,y_train 
 from sklearn import tree
 model = tree.DecisionTreeClassifier()
 model = model.fit(x_train, y_train)
@@ -179,7 +179,7 @@ model = model.fit(x_train, y_train)
 Evaluate the performance of the decision tree model by using the test data. 
 
 ```{python}
-# INSERT CODE TO USE THE MODEL TO MAKE PREDICTIONS FOR THE TRAINING AND TEST SET 
+# USE THE MODEL TO MAKE PREDICTIONS FOR THE TRAINING AND TEST SET 
 
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay
 
@@ -188,7 +188,7 @@ yp_test = model.predict(x_test)
 ```
 
 ```{python}
-#INSERT CODE TO WRITE A FUNCTION def confusion_plot(y_data,y_pred) WHICH GENERATES A CONFUSION MATRIX PLOT AND PRINTS THE INFORMATION ABOVE (see link above for example)
+# FUNCTION def confusion_plot(y_data,y_pred) WHICH GENERATES A CONFUSION MATRIX PLOT AND PRINTS THE INFORMATION ABOVE (see link above for example)
 
 def confusion_plot(y_data,y_pred):
     cm = confusion_matrix(y_data, y_pred)
@@ -205,7 +205,7 @@ def confusion_plot(y_data,y_pred):
 ```
 
 ```{python}
-# RUN THE FOLLOWING CODE TO TEST YOUR FUNCTION 
+# TESTING THE FUNCTION 
 print("------TRAINING------")
 confusion_plot(y_train,yp_train)
 print("------TEST------")
@@ -214,7 +214,7 @@ confusion_plot(y_test,yp_test)
 
 The initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This is a case of major overfitting on the training data! The Decision Tree below outputs a highly complex tree of several child nodes to learn the training data as best as possible. However, this led to it not generalizing well on unseen data, which is why we see a significantly lower accuracy of 62% on the test set. Therefore, we shall employ hyperparameter tuning for the Decision Tree to generalize better on unseen data.
 
- #### 4.1.6  Visualize the tree
+ #### Visualizing the Decision Tree
 
 ```{python}
 # FUNCTION "def plot_tree(model,X,Y)" VISUALIZES THE DECISION TREE 
