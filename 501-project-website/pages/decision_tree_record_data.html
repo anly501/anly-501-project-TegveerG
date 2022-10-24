@@ -115,13 +115,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#methods" id="toc-methods" class="nav-link" data-scroll-target="#methods">Methods</a></li>
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results">Results</a></li>
-  <li><a href="#load-the-cleaned-text-data" id="toc-load-the-cleaned-text-data" class="nav-link" data-scroll-target="#load-the-cleaned-text-data">Load the cleaned text data</a></li>
+  <li><a href="#loading-libraries-and-the-cleaned-record-data-rekt-database" id="toc-loading-libraries-and-the-cleaned-record-data-rekt-database" class="nav-link" data-scroll-target="#loading-libraries-and-the-cleaned-record-data-rekt-database">Loading Libraries and the Cleaned Record Data (REKT Database)</a></li>
   <li><a href="#exploring-the-pre-processed-data-using-correlation-heat-maps-and-pairplots" id="toc-exploring-the-pre-processed-data-using-correlation-heat-maps-and-pairplots" class="nav-link" data-scroll-target="#exploring-the-pre-processed-data-using-correlation-heat-maps-and-pairplots">Exploring the Pre-processed Data using Correlation Heat Maps and Pairplots</a></li>
   <li><a href="#split-the-dataset-into-training-and-testing-sets" id="toc-split-the-dataset-into-training-and-testing-sets" class="nav-link" data-scroll-target="#split-the-dataset-into-training-and-testing-sets">Split the dataset into training and testing sets</a></li>
   <li><a href="#baseline-random-classifier" id="toc-baseline-random-classifier" class="nav-link" data-scroll-target="#baseline-random-classifier">Baseline Random Classifier</a></li>
   <li><a href="#binary-decision-tree-classifier" id="toc-binary-decision-tree-classifier" class="nav-link" data-scroll-target="#binary-decision-tree-classifier">Binary Decision Tree Classifier</a>
   <ul class="collapse">
+  <li><a href="#evaluating-initial-decision-tree-performance" id="toc-evaluating-initial-decision-tree-performance" class="nav-link" data-scroll-target="#evaluating-initial-decision-tree-performance">Evaluating Initial Decision Tree Performance</a></li>
+  <li><a href="#visualizing-the-decision-tree" id="toc-visualizing-the-decision-tree" class="nav-link" data-scroll-target="#visualizing-the-decision-tree">Visualizing the Decision Tree</a></li>
   <li><a href="#hyper-parameter-tuning-using-gridsearchcv-evaluating-best-decision-tree-classifier-for-test-data-performance" id="toc-hyper-parameter-tuning-using-gridsearchcv-evaluating-best-decision-tree-classifier-for-test-data-performance" class="nav-link" data-scroll-target="#hyper-parameter-tuning-using-gridsearchcv-evaluating-best-decision-tree-classifier-for-test-data-performance">Hyper-parameter tuning using GridSearchCV: Evaluating Best Decision Tree Classifier for Test Data Performance</a></li>
+  <li><a href="#visualizing-the-hyperparameter-tuned-decision-tree" id="toc-visualizing-the-hyperparameter-tuned-decision-tree" class="nav-link" data-scroll-target="#visualizing-the-hyperparameter-tuned-decision-tree">Visualizing the Hyperparameter Tuned Decision Tree</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -143,8 +146,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The cleaned REKT Database has 816 observations after pre-processing. If we recall, the original REKT Database had 3076 observations; however, to treat the heavy class imbalance present in the original data, about 1861 honeypots, 383 rugpulls, and 29 “other” scams were filtered out. Moreover, no key information, in terms of funds lost or source of the attack, was offered about these attacks in the observations that were eliminated. We are left with all those rows where funds lost != 0 and where all projects have some information to offer regarding the extent of the scam, helpful in predicting the scam type.</p>
 <p>Recalling from the Naive Bayes tab, the initial Naive Bayes Classifier that was tested on the same record data outputted an accuracy of 60% on the test data and the discretized Naive Bayes Classifier outputted an accuracy of 72%. Our expectation is that the Decision Tree should perform better than the Naive Bayes Classifiers because the Decision Tree is a more complex and stronger algorithm than Naive Bayes. Indeed, we are proved correct, as the initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This indicated major overfitting on the training data and, hence, hyperparameter tuning was employed for the Decision Tree to generalize better on unseen data. After performing hyperparameter tuning, the accuracy on the test data was significantly higher at 76%, which means that the Decision Tree did outperform the Naive Bayes Classifier trained on discretized data. Therefore, hyperparameter tuning is an important step in the machine learning process and it opens insights on why and how a particular model performs when its parameters are dialed back and forth.</p>
 </section>
-<section id="load-the-cleaned-text-data" class="level3">
-<h3 class="anchored" data-anchor-id="load-the-cleaned-text-data">Load the cleaned text data</h3>
+<section id="loading-libraries-and-the-cleaned-record-data-rekt-database" class="level3">
+<h3 class="anchored" data-anchor-id="loading-libraries-and-the-cleaned-record-data-rekt-database">Loading Libraries and the Cleaned Record Data (REKT Database)</h3>
 <div class="cell" data-execution_count="1">
 <details>
 <summary>Code</summary>
@@ -162,9 +165,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="import" class="level4">
-<h4 class="anchored" data-anchor-id="import">4.1.1: Import</h4>
-<p>The following code will import the data file into a pandas data-frame</p>
 <div class="cell" data-execution_count="2">
 <details>
 <summary>Code</summary>
@@ -178,7 +178,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize first 5 rows</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df.head(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div class="cell-output cell-output-display" data-execution_count="43">
 
 <div>
 
@@ -262,7 +262,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </section>
-</section>
 <section id="exploring-the-pre-processed-data-using-correlation-heat-maps-and-pairplots" class="level3">
 <h3 class="anchored" data-anchor-id="exploring-the-pre-processed-data-using-correlation-heat-maps-and-pairplots">Exploring the Pre-processed Data using Correlation Heat Maps and Pairplots</h3>
 <p>Scam type is the dependent variable, which contains 2 labels, Exit Scam (381 observations) and Exploit (435 observations). The independent variables are a mix of continuous, discrete, and text data. The independent continuous variables are log_funds_lost and log_funds_returned. The independent discrete variables are 3 datetime features, including month_of_attack, day_of_week_of_attack, and day_of_year_of_attack. The only string independent variable is scamNetworks, which denotes the token attached to the project that got scammed.</p>
@@ -294,8 +293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GENERATING A SEABORN PAIRPLOT </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sns.pairplot(df,hue<span class="op">=</span><span class="st">"scam_type_grouped"</span>, diag_kind<span class="op">=</span><span class="st">'kde'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x13ccb0fa0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>&lt;seaborn.axisgrid.PairGrid at 0x13863b130&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="decision_tree_record_data_files/figure-html/cell-7-output-2.png" width="1343" height="1178"></p>
@@ -411,10 +410,10 @@ Unique labels and respective counts after one-hot encoding:
 
 
 -----RANDOM CLASSIFIER-----
-count of prediction: dict_values([421, 395])
-probability of prediction: [0.51593137 0.48406863]
-accuracy 0.5147058823529411
-precision, recall, fscore, support (array([0.48101266, 0.54631829]), array([0.49868766, 0.52873563]), array([0.48969072, 0.53738318]), array([381, 435]))</code></pre>
+count of prediction: dict_values([416, 400])
+probability of prediction: [0.50980392 0.49019608]
+accuracy 0.49142156862745096
+precision, recall, fscore, support (array([0.4575    , 0.52403846]), array([0.48031496, 0.50114943]), array([0.46862996, 0.51233843]), array([381, 435]))</code></pre>
 </div>
 </div>
 <p>The baseline classifier outputs an overall accuracy of 50% and an f-1 score of 0.0.47630923 for Exit Scam labels and 0.0.4939759 for Exploit labels respectively. The Decision Tree Classifier should perform better than this, let’s find out…</p>
@@ -438,8 +437,6 @@ precision, recall, fscore, support (array([0.48101266, 0.54631829]), array([0.49
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>model <span class="op">=</span> model.fit(x_train, y_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>#### 4.1.5 Check the results</p>
-<p>Evaluate the performance of the decision tree model by using the test data.</p>
 <div class="cell" data-execution_count="15">
 <details>
 <summary>Code</summary>
@@ -469,6 +466,8 @@ precision, recall, fscore, support (array([0.48101266, 0.54631829]), array([0.49
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+<section id="evaluating-initial-decision-tree-performance" class="level3">
+<h3 class="anchored" data-anchor-id="evaluating-initial-decision-tree-performance">Evaluating Initial Decision Tree Performance</h3>
 <div class="cell" data-execution_count="17">
 <details>
 <summary>Code</summary>
@@ -493,20 +492,22 @@ POSITIVE PRECISION (Y=1): 1.0
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>------TEST------
-ACCURACY: 0.6280487804878049
+ACCURACY: 0.6463414634146342
 NEGATIVE RECALL (Y=0): 0.6162790697674418
-NEGATIVE PRECISION (Y=0): 0.654320987654321
-POSITIVE RECALL (Y=1): 0.6410256410256411
-POSITIVE PRECISION (Y=1): 0.6024096385542169
+NEGATIVE PRECISION (Y=0): 0.6794871794871795
+POSITIVE RECALL (Y=1): 0.6794871794871795
+POSITIVE PRECISION (Y=1): 0.6162790697674418
 [[53 33]
- [28 50]]</code></pre>
+ [25 53]]</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="decision_tree_record_data_files/figure-html/cell-18-output-4.png" width="561" height="435"></p>
 </div>
 </div>
 <p>The initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This is a case of major overfitting on the training data! The Decision Tree below outputs a highly complex tree of several child nodes to learn the training data as best as possible. However, this led to it not generalizing well on unseen data, which is why we see a significantly lower accuracy of 62% on the test set. Therefore, we shall employ hyperparameter tuning for the Decision Tree to generalize better on unseen data.</p>
-<p>### Visualizing the Decision Tree</p>
+</section>
+<section id="visualizing-the-decision-tree" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-decision-tree">Visualizing the Decision Tree</h3>
 <div class="cell" data-execution_count="18">
 <details>
 <summary>Code</summary>
@@ -524,6 +525,7 @@ POSITIVE PRECISION (Y=1): 0.6024096385542169
 <p><img src="decision_tree_record_data_files/figure-html/cell-19-output-1.png" width="1507" height="1498"></p>
 </div>
 </div>
+</section>
 <section id="hyper-parameter-tuning-using-gridsearchcv-evaluating-best-decision-tree-classifier-for-test-data-performance" class="level3">
 <h3 class="anchored" data-anchor-id="hyper-parameter-tuning-using-gridsearchcv-evaluating-best-decision-tree-classifier-for-test-data-performance">Hyper-parameter tuning using GridSearchCV: Evaluating Best Decision Tree Classifier for Test Data Performance</h3>
 <p>The “max_depth” hyper-parameter lets us control the number of layers in our tree. The leaf nodes of the Decision Tree don’t split the data any further. Therefore, “min_samples_leaf” hyper-parameter lets us control the classification for examples that end up in that node. We shall iterate over “max_depth” and “min_samples_leaf” as well as change the criterions, including gini and entropy, of judging the best splits to try to find the set of hyper-parameters with the lowest training AND test error.</p>
@@ -569,7 +571,9 @@ weighted avg       0.78      0.77      0.77       164
 </code></pre>
 </div>
 </div>
-<p>### Visualizing the Hyperparameter Tuned Decision Tree</p>
+</section>
+<section id="visualizing-the-hyperparameter-tuned-decision-tree" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-the-hyperparameter-tuned-decision-tree">Visualizing the Hyperparameter Tuned Decision Tree</h3>
 <div class="cell" data-execution_count="20">
 <details>
 <summary>Code</summary>

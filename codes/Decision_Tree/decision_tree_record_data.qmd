@@ -22,7 +22,7 @@ The cleaned REKT Database has 816 observations after pre-processing. If we recal
 
 Recalling from the Naive Bayes tab, the initial Naive Bayes Classifier that was tested on the same record data outputted an accuracy of 60% on the test data and the discretized Naive Bayes Classifier outputted an accuracy of 72%. Our expectation is that the Decision Tree should perform better than the Naive Bayes Classifiers because the Decision Tree is a more complex and stronger algorithm than Naive Bayes. Indeed, we are proved correct, as the initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This indicated major overfitting on the training data and, hence, hyperparameter tuning was employed for the Decision Tree to generalize better on unseen data. After performing hyperparameter tuning, the accuracy on the test data was significantly higher at 76%, which means that the Decision Tree did outperform the Naive Bayes Classifier trained on discretized data. Therefore, hyperparameter tuning is an important step in the machine learning process and it opens insights on why and how a particular model performs when its parameters are dialed back and forth.
 
-### Load the cleaned text data 
+### Loading Libraries and the Cleaned Record Data (REKT Database)
 
 ```{python}
 import pandas as pd
@@ -38,10 +38,6 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, classifica
 import warnings
 warnings.filterwarnings("ignore")
 ```
-
-#### 4.1.1: Import 
-
-The following code will import the data file into a pandas data-frame
 
 ```{python}
 # LOAD THE DATAFRAME
@@ -174,10 +170,6 @@ model = tree.DecisionTreeClassifier()
 model = model.fit(x_train, y_train)
 ```
 
- #### 4.1.5  Check the results 
-
-Evaluate the performance of the decision tree model by using the test data. 
-
 ```{python}
 # USE THE MODEL TO MAKE PREDICTIONS FOR THE TRAINING AND TEST SET 
 
@@ -204,6 +196,8 @@ def confusion_plot(y_data,y_pred):
     
 ```
 
+### Evaluating Initial Decision Tree Performance
+
 ```{python}
 # TESTING THE FUNCTION 
 print("------TRAINING------")
@@ -214,7 +208,7 @@ confusion_plot(y_test,yp_test)
 
 The initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This is a case of major overfitting on the training data! The Decision Tree below outputs a highly complex tree of several child nodes to learn the training data as best as possible. However, this led to it not generalizing well on unseen data, which is why we see a significantly lower accuracy of 62% on the test set. Therefore, we shall employ hyperparameter tuning for the Decision Tree to generalize better on unseen data.
 
- ### Visualizing the Decision Tree
+### Visualizing the Decision Tree
 
 ```{python}
 # FUNCTION "def plot_tree(model,X,Y)" VISUALIZES THE DECISION TREE 
@@ -260,7 +254,7 @@ grid_predictions = grid.predict(x_test)
 print(classification_report(y_test, grid_predictions))
 ```
 
- ### Visualizing the Hyperparameter Tuned Decision Tree
+### Visualizing the Hyperparameter Tuned Decision Tree
 
 ```{python}
 hyperparameter_tuned_best_model = tree.DecisionTreeClassifier(criterion='gini', max_depth=5, min_samples_leaf=10)
