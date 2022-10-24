@@ -214,7 +214,7 @@ confusion_plot(y_test,yp_test)
 
 The initial Decision Tree outputted a 100% on all metrics on the training data and a 62% accuracy on the test data. This is a case of major overfitting on the training data! The Decision Tree below outputs a highly complex tree of several child nodes to learn the training data as best as possible. However, this led to it not generalizing well on unseen data, which is why we see a significantly lower accuracy of 62% on the test set. Therefore, we shall employ hyperparameter tuning for the Decision Tree to generalize better on unseen data.
 
- #### Visualizing the Decision Tree
+ ### Visualizing the Decision Tree
 
 ```{python}
 # FUNCTION "def plot_tree(model,X,Y)" VISUALIZES THE DECISION TREE 
@@ -259,6 +259,8 @@ grid_predictions = grid.predict(x_test)
 # print classification report
 print(classification_report(y_test, grid_predictions))
 ```
+
+ ### Visualizing the Hyperparameter Tuned Decision Tree
 
 ```{python}
 hyperparameter_tuned_best_model = tree.DecisionTreeClassifier(criterion='gini', max_depth=5, min_samples_leaf=10)
