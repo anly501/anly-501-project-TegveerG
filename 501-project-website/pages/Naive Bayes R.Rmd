@@ -1,12 +1,17 @@
 ---
-title: "Multinomial Naive Bayes in R (REKT Database Record Data) and Python (Twitter and News Text)"
-output: 
+title: Multinomial Naive Bayes in R (REKT Database Record Data) and Python (Twitter
+  and News Text)
+output:
+  word_document:
+    toc: yes
   html_document:
-    toc: true
+    toc: yes
     toc_float:
-      collapsed: false
-      smooth_scroll: True
+      collapsed: no
+      smooth_scroll: yes
     df_print: paged
+  pdf_document:
+    toc: yes
 ---
 ## Process Flow of Multinomial Naive Bayes:
 
@@ -21,11 +26,10 @@ library(tidyverse)
 df <- tibble(
   Codes_and_Data = c("Naive Bayes Python Code", "Clean Tweets", "Clean News", "Naive Bayes R Code", "Clean Record Data"),
   link = c("https://github.com/anly501/anly-501-project-TegveerG/tree/main/codes/Naive_Bayes_py", "https://github.com/anly501/anly-501-project-TegveerG/blob/main/data/Clean%20Data/Clean_TokeLemm_Crypto_Tweets.csv", "https://github.com/anly501/anly-501-project-TegveerG/blob/main/data/Clean%20Data/Clean_TokeLemm_News.csv", "https://github.com/anly501/anly-501-project-TegveerG/tree/main/codes/Naive_Bayes_R", "https://github.com/anly501/anly-501-project-TegveerG/blob/main/data/Clean%20Data/REKT_Database_Clean_Python.csv"))
-  
+
 # using html
 df %>%
-    mutate(
-        Link = glue::glue("[Github]({link})"),
+    mutate(Link = glue::glue("[Github]({link})"),
         Link = map(Link, gt::md)) %>% select(Codes_and_Data, Link) %>%
     gt()
 ```
