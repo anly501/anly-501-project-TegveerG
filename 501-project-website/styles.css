@@ -97,6 +97,11 @@ figure img {
 figure figcaption {
     text-align: center;
     outline: none;
+    border: none;
+}
+
+.wp-caption {
+    border: none;
 }
 
 b {

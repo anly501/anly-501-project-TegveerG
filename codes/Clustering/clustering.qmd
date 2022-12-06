@@ -1,12 +1,13 @@
 ---
 format:
   html:
+    backgroundcolor: "#63666A"
+    fontcolor: white
+    linkcolor: black
     code-fold: true
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: true
-      df_print: paged
+    code-tools: true
+    df-print: paged
+    highlight-style: vim-dark
 jupyter: python3
 ---
 

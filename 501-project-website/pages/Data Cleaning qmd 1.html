@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<nav class="navbar navbar-expand-lg fixed-top navbarScroll">
+  <div class="container">
+      <a class="navbar-brand" href="#">Data Cleaning</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" href="../index.html">About Me</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/anly501/anly-501-project-TegveerG/tree/main/codes/" target="_blank">Code</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/anly501/anly-501-project-TegveerG/tree/main/data" target="_blank">Data</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Introduction.html">Introduction</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Data Gathering.html">Data Gathering</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Data-Cleaning-rmd.html">Data Cleaning</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Exploring-Data-rmd.html">Exploring Data</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Naive-Bayes-R.html">Naive Bayes</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="decision_tree_record_data.html">Decision Trees</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="svm_text_data.html">SVM</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="clustering.html">Clustering</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="ARM and Networking.html">ARM and Networking</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="Conclusions.html">Conclusions</a>
+              </li>
+          </ul>
+          
+      </div>
+  </div>
+</nav>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>data-cleaning-qmd</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Data Cleaning qmd_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Data Cleaning qmd_files/libs/quarto-html/quarto.js"></script>
+<script src="Data Cleaning qmd_files/libs/quarto-html/popper.min.js"></script>
+<script src="Data Cleaning qmd_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Data Cleaning qmd_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Data Cleaning qmd_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Data Cleaning qmd_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Data Cleaning qmd_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Data Cleaning qmd_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Data Cleaning qmd_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><b href="#data-cleaning" id="toc-data-cleaning" class="nav-link active" data-scroll-target="#data-cleaning">Data Cleaning</b></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+
+
+<style>
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: black;
+}
+
+ a:hover {
+    color: blue;
+}
+
+</style>
+<section id="data-cleaning" class="level1">
+<h1>Data Cleaning</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/"><img src="../images/data_cleaning.jpeg" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p><a href="https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/REKT_Database_Cleaning.ipynb">REKT Database (Python)</a></p>
+<hr>
+<p><a href="https://github.com/anly501/anly-501-project-TegveerG/tree/main/data/Raw%20Data/Python_REKT_Database_API"><strong>Raw Data (first 5 rows)</strong></a></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+</div>
+<p>After loading the record data and getting a quick view of it, we can move to cleaning/pre-processing the data. I first started with stripping off the whitespaces off the column names. Then, I went on to dropping variables that would not assist in our analysis. Most of the variables that we shall drop from our 31 columns are links to external sites, such as web archive, discord, and github. Moreover, these variables contain more than 2900 NaN values out of a total observation count of 3055. However, the variable proof_link could be important if I decide to scrape text data from the linked article about a crypto attack. We shall also get rid of the technical_issue field because it only contains 4 non-NaN values and, more importantly, does not have any insightful use. Therefore, I find it sensible to entirely remove these fields, instead of getting rid of their existing NaN values, for EDA and modeling purposes.</p>
+<p>Next, we proceed to variable identification and typecasting, an important step to recognize what types of data our variables fit in. For variables identified as Integer type, the summary is as follows:</p>
+<ul>
+<li><p><code>id</code> variable is a unique, nominal code indicating the token/coin associated with the crypto attack. Converting it to category type would not be beneficial due to the large number of unique tokens present in the database. <strong>This variable should be converted to object/string type</strong>.</p></li>
+<li><p><code>active</code> variable most probably represents whether the crypto project is currently active in the market. I perused the API documentation to try to find this response variable’s significance, but could not. Moreover, it has only taken on one as a value for ALL observations. This would mean that all crypto projects present in the database are still active. We could keep this variable for now, but <strong>converting it to category would be better as it most likely would take on two values, either 1 (active) or 0 (inactive).</strong></p></li>
+</ul>
+<p>For variables identified as Object type, the summary is as follows:</p>
+<ul>
+<li>Variables like <code>date</code>, <code>funds_lost</code>, and <code>funds_returned</code> are of type object. This means that <strong>Pandas was not able to recognize the datatype</strong> of these four variables. Therefore, we shall convert these aforementioned object data type variables to their respective datatypes. <code>funds_lost</code> and <code>funds_returned</code> are converted to floats and <code>date</code> is converted to pandas datetime.</li>
+</ul>
+<p>For variables identified as Float type, the summary is as follows:</p>
+<ul>
+<li>The <code>is_verified_source_code</code> and <code>is_public_team</code> variables take on the values of either 0 or 1. Hence, we convert them to category type.</li>
+</ul>
+<p><strong><em>Extracting important time-based features for better EDA experience:</em></strong></p>
+<p>The features from extracted are <code>month_of_attack</code>, <code>day_of_week_of_attack</code>, and <code>day_of_year_of_attack</code> from the raw date variable.</p>
+<p><strong><em>Removing HTML Tags from Description variable</em></strong></p>
+<p>We also have to clean a vital text variable in our dataset that will be used in NLP tasks later. This is the <code>description</code> variable, which verbosely lays out the proof of the attack taking place and verified links to where the reader can obtain more information. In order to process this column, I made use of the Beautiful Soup library’s <code>.get_text</code> function and passed it in a for loop that looped through the ‘description’ variable and appended processed outputs to the <code>REKT_df</code> data frame.</p>
+<p>HOWEVER, a crucial step was missing, which was that of getting rid of all the NaN’s present in the <code>description</code> variable. This variable itself has 285 missing values, but when we add the <code>funds_lost</code> variable in the mix, the total missing values is only 284. The <code>funds_lost</code>variable is a highly valuable attribute and, possibly, a target variable for modeling. We cannot get rid of even that single observation that has a <code>funds_lost</code> value but no description. Therefore, seen in the two screenshots below, we could not get rid of ALL NaN’s present in the <code>funds_lost</code> variable and <code>description</code> variable.</p>
+<p><img src="../images/REKT_Database_Rows_Removed.jpeg" class="img-fluid"> <img src="../images/87th_highest_funds_lost_observation_missing_description.jpeg" class="img-fluid"></p>
+<p>The 284 rows were the only ones discarded while cleaning the dataset. Yes, there are missing values present in other rows, but we have done well to eliminate most, if not all, unnecessary data for EDA!</p>
+<p>After all these above steps were completed, we come up with a cleaned data like this:</p>
+<p><a href="https://github.com/anly501/anly-501-project-TegveerG/blob/main/data/Clean%20Data/REKT_Database_Clean_Python.csv"><strong>Clean Data (first 5 rows)</strong></a></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   project_name
+1 Terra Classic
+2     Africrypt
+3     PlusToken
+4        Thodex
+5    BitConnect
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         description
+1 A complex mixture of events and market dynamics cost the implosion of the $40b Terra (Classic) Network.&nbsp;Details of the ExploitThe Terra Luna Network was focused on its two native coins $LUNC and $USTC. $USTC was the algorithmic Stablecoin that was supposed to hold the peg to 1$ and $LUNC functioned as the satellite asset that absorbed $USTC’s volatility. This was achieved through a mint and burn functionality as well as by arbitrage which the former function inherently enabled.$USTC rose to prominence in rapid fashion even surpassing $DAI in market cap. The Luna Foundation Group decided to start a new Curve4pool with $FRAX, $USTC, $USDC and $USDT as assets, excluding $DAI in an attempt to starve the most used StableCoin pool used by institutions the Curve3pool on the Ethereum network.The migration of $USTC from the Curve3pool is the event that started the bankrun. In early May, the Luna Foundation Guard withdrew 250 million $USTC from the Curve3pool in preparation for the Curve4pool. Simultaneously, a handful of whales withdrew sizeable amounts from the anchor protocol, a crypto savings bank. The biggest wallet withdrew 347 million $USTC in total and bridged funds to the Curve3pool in order to swap for other assets. This movement of funds created an imbalance between $USTC and other Stablecoins in the pool, resulting in devaluation of $USTC on exchanges.As a result of the tokenomics of $USTC and $LUNC the firesale of $USTC resulted in uncontrollable minting of the $LUNC token and a rapid fall in valuation. Additionally, the Terra network went down due to overload in transaction as market participants were panicking and trying to answer margin calls within the Anchor protocol. Eventually massive liquidations of collateral in the Anchor protocol would be incurred by investors.Block Data ReferenceWhale Addresses:https://etherscan.io/address/0x8d47f08ebc5554504742f547eb721a43d4947d0ahttps://etherscan.io/address/0x4b5e60cb1cd6c5e67af5e6cf63229d1614bb781chttps://etherscan.io/address/0x1df8ea15bb725e110118f031e8e71b91abaa2a06https://etherscan.io/address/0xeb5425e650b04e49e5e8b62fbf1c3f60df01f232https://etherscan.io/address/0x41339d9825963515e5705df8d3b0ea98105ebb1chttps://etherscan.io/address/0x68963dc7c28a36fcacb0b39ac2d807b0329b9c69https://etherscan.io/address/0x9f705ff1da72ed334f0e80f90aae5644f5cd7784
+2                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Ameer and Raees Cajee, the exchange's founders, were reported missing in June 2021 after alleging that almost $3.6 billion invested in the protocol was stolen in a "hack".Details of the ExploitAfricrypt claimed to connect banks, payment providers and digital asset providers for seamless global money transfers.In April 2021, the Africrypt case gained traction. At the time, one of the protocol's founders contacted investors to notify them that the protocol had been compromised. The creator asked that investors refrain from contacting attorneys or law authorities since doing so would "slow the recovery process."However, Africrypt staff lost access to the exchange's back-end systems seven days before the claimed attack, making this report suspect. After receiving notice of the "hack" and its odd request not to contact attorneys or law enforcement, several investors hired a law firm Hanekom Attorneys. The investigation discovered that most of the bitcoin invested with the exchange had been withdrawn and moved through tumblers and mixers to make it harder to track.&nbsp;The founders of Africrypt are still at large and have not been found as the time of this writing.
+3                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              The perpetrators of one of the largest digital currency frauds have been sentenced to up to 11 years in prison. In addition, the PlusToken operators were penalized up to $900,000 by a Chinese court for their participation in the $2.25 billion Ponzi scam.Details of the ExploitChen Bo established PlusToken in early 2018, posing as a South Korean wallet and exchange. It enticed investors by promising speedy and guaranteed returns. In the two years afterwards, Bo has recruited numerous others and spread the fraud to other Southeast Asian nations such as China, Cambodia, Malaysia, Vanuatu, and Vietnam.PlusToken operators had devised a pyramid scheme that managed to lure over 2.6 million investors, authorities said. The scam was organized into at least 3,200 investor levels, with more referrals and bigger investments bumping an investor up the chain. The operators also lied to investors that they were making money through digital currency investing, according to investors.
+4                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 Thodex a turkish crypto exchange went down with other $2 billion of user funds entangled in massive fraud and mismanagement.Details of the ExploitAccording to a translated statement on the website, Thodex, a crypto exchange that is located in Turkey, stated its platform has been "temporarily stopped" to handle an "abnormal fluctuation in the company accounts."According to local media, Thodex's founder, Faruk Fatih Özer, has gone to Albania with $2 billion of investors' funds. The Demiroren News Agency published a photo of Ozer departing Istanbul Airport:https://www.dha.com.tr/gundem/thodexin-kurucusu-faruk-fatih-ozerin-havalimanindan-ayrilirken-fotografi-1822744The CEO has since declared that he has been close to committing suicide but decided against it. According to his own words, Faruk Fatih Özer, plans to repay all investors before handing himself in to authorities.
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       BitConnect was a Ponzi Scheme that managed to raise approx. $2 billion dollars from investors before it collapsed.Details of the ExploitBitConnect is a crypto lending platform, which claimed it used a trading bot for earning interest.In fact, BitConnect was suspected of being a Ponzi scheme because of its multilevel marketing structure and impossibly high payouts (1% daily compounded interest). BitConnect interest fluctuated greatly with the volatility of Bitcoin, which its value was tied to.The BitConnect Coin was among the world's top 20 most successful cryptocurrency tokens until its price collapsed after traders began losing confidence. BCC rose from a post ICO price of $0.17 to an all-time high of US$463 in December 2017; it declined to US$0.40 as of March 11, 2019. BitConnect released outstanding loans at a rate of US$363.62 to the BitConnect Wallet in form of BCC. However, soon after that news the internal exchange price and liquidity collapsed resulting in a nearly complete loss of value. Prosecutors managed to seize crypto assets worth $57 million from Arcaro, BitConnect's biggest partner in North America.
+             name_categories token_name
+1                 Stablecoin LUNC, USTC
+2                       CeFi           
+3                       CeFi           
+4                       CeFi           
+5 Borrowing and Lending,CeFi        BCC
+                                                                           token_address
+1 0x7e43d25EaD96B1058f671F6690ea705BA2C7e5B9, 0xa47c8bf37f92abed4a126bda807a7b7498661acd
+2                                                                                       
+3                                                                                       
+4                                                                                       
+5                                                                                       
+  token_addresses       date
+1              [] 2022-05-08
+2              [] 2021-06-23
+3              [] 2019-12-16
+4              [] 2021-04-22
+5              [] 2018-01-15
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            proof_link
+1 https://www.nansen.ai/research/on-chain-forensics-demystifying-terrausd-de-peg?utm_source=twitter&amp;utm_medium=organic&amp;utm_campaign=Research_USTdepeg_27May22, https://www.cnet.com/personal-finance/crypto/luna-crypto-crash-how-ust-broke-and-whats-next-for-terra/, https://www.fool.com/the-ascent/cryptocurrency/articles/binance-ceo-says-luna-collapse-left-him-poor-again/#:~:text=Key%20points,and%20make%20a%20new%20plan., https://medium.com/coinmonks/whats-happening-with-the-terra-luna-seed-money-exit
+2                                                                                                                                                                                                                                                                                                                       https://finance.yahoo.com/news/africrypt-bitcoin-disappearance-174636634.html, https://www.bloomberg.com/news/articles/2021-06-23/s-african-brothers-vanish-and-so-does-3-6-billion-in-bitcoin
+3                                                                                                                                                                                                                         https://cointelegraph.com/news/vanuatu-extradicts-six-chinese-citizens-allegedly-involved-in-crypto-scheme, https://www.nasdaq.com/articles/ringleaders-of-plustoken-scam-jailed-for-up-to-11-years-2020-12-01, https://coingeek.com/plustoken-scam-top-operators-jailed-for-up-to-11-years/
+4                                                                                                                                                                                                                                                                                                            https://www.cnbc.com/2021/04/23/bitcoin-btc-ceo-of-turkish-cryptocurrency-exchange-thodex-missing.html, https://www.dw.com/en/turkish-cryptocurrency-platform-founder-vanishes-fraud-suspected/a-57302955
+5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     webarchive_link
+1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+2                                                                                                                                                                                                                                                                                                                                                                                                                                   https://web.archive.org/web/20200921145240/https://africrypt.io/
+3                                                                                                                                                                                                                                                                                                                                                     https://web.archive.org/web/20220125033211/https://www.coindesk.com/policy/2020/12/01/ringleaders-of-plustoken-scam-jailed-for-up-to-11-years/
+4                                                                                                                                                                                                                                                                                                                                                             https://web.archive.org/web/20220405133149/https://coingeek.com/missing-thodex-ceo-may-face-40000-years-behind-bars-in-new-indictment/
+5 https://web.archive.org/web/20220426131429/https://economictimes.indiatimes.com/tech/technology/bitconnects-satish-kumbhani-charged-by-us-in-2-4-billion-ponzi-scam/articleshow/89844151.cms, https://web.archive.org/web/20220709021515/https://www.theverge.com/2021/11/18/22789507/crypto-scam-government-bitconnect-56-million-victim-reimbursement, https://web.archive.org/web/20220604204802/https://edition.cnn.com/2022/02/27/business/bitconnect-ponzi-scheme-satish-kumbhani/index.html
+  funds_lost funds_returned active is_verified_source_code is_public_team
+1    4.0e+10        0.0e+00      1                       0              1
+2    3.6e+09        0.0e+00      1                       0              1
+3    2.9e+09        0.0e+00      1                       0              0
+4    2.0e+09        0.0e+00      1                       0              0
+5    2.0e+09        5.6e+07      1                       0              0
+                      scam_type network      scamNetworks
+1   {'id': 19, 'type': 'Other'}      {} ['Terra Classic']
+2 {'id': 10, 'type': 'Rugpull'}      {}           ['CEX']
+3 {'id': 10, 'type': 'Rugpull'}      {}           ['CEX']
+4 {'id': 10, 'type': 'Rugpull'}      {}           ['CEX']
+5 {'id': 10, 'type': 'Rugpull'}      {}           ['CEX']
+                                                                                                                                                                                                      auditedBy
+1 [{'audit_link': 'safe/files/audit/pdf/CertiK_Audit_for_Terra_v18.pdf', 'date': '2020-09-03T00:00:00.000Z', 'partner': {'id': 8, 'name': 'Certik', 'logo_link': 'safe/files/partner/logo/609520cbb1bba.png'}}]
+2                                                                                                                                                                                                            []
+3                                                                                                                                                                                                            []
+4                                                                                                                                                                                                            []
+5                                                                                                                                                                                                            []
+  month_of_attack day_of_week_of_attack day_of_year_of_attack
+1               5                     6                   128
+2               6                     2                   174
+3              12                     0                   350
+4               4                     3                   112
+5               1                     0                    15</code></pre>
+</div>
+</div>
+<p><a href="https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/Twitter_API_cleaning.ipynb">Twitter Text (Python)</a></p>
+<hr>
+<ol type="1">
+<li><p>Count Vectorizer for Analyzing Cosine Similarity</p></li>
+<li><p>Regex -&gt; <code>.str.lower().apply(lambda x: re.sub(r"(?:\@|https?\://)\S+", "", x))</code> along with NLTK stopwords and tokenizations functions allows us to calculate Perplexity for n-gram models.</p></li>
+<li><p>Using the processed text from when Perplexity was applied, the same text can be used for Sentiment Analysis using Vader. EDA page with more detailed content!</p></li>
+</ol>
+<p><a href="https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd">News Text (R Code)</a></p>
+<hr>
+<p>Record data cleaned by subsetting variables that were not useful to EDA or modeling. Only the <code>author</code> variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project. We must also clean the <code>source</code> column using <code>gsub()</code> because it contains dictionary values, including 2 keys, in the form of strings. We only need the name of the publishing organization and, hence, string operations will help us parse the column correctly.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
