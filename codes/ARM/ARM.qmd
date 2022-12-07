@@ -1,4 +1,5 @@
 ---
+jupyter: python3
 format:
   html:
     backgroundcolor: '#63666A'
@@ -8,7 +9,6 @@ format:
     code-tools: true
     df-print: paged
     highlight-style: vim-dark
-jupyter: anly590
 ---
 
 # Association Rule Mining with Record Data (REKT Database)
@@ -264,14 +264,14 @@ def plot_network(G):
 
     #GENERATE PLOT
     fig, ax = plt.subplots()
-    fig.set_size_inches(30, 30)
+    fig.set_size_inches(15, 15)
 
     #assign colors based on attributes
     weights_e 	= [G[u][v]['weight'] for u,v in G.edges()]
 
     #SAMPLE CMAP FOR COLORS 
     cmap=plt.cm.get_cmap('Blues')
-    colors_e 	= [cmap(G[u][v]['weight']*5.0) for u,v in G.edges()]
+    colors_e 	= [cmap(G[u][v]['weight']/5.0) for u,v in G.edges()]
 
     #PLOT
     nx.draw(
@@ -279,9 +279,9 @@ def plot_network(G):
     node_color='crimson',
     edgecolors="black",
     edge_color=colors_e,
-    node_size=5000,
+    node_size=1000,
     linewidths=2,
-    font_size=12,
+    font_size=10,
     font_color="black",
     font_weight="bold",
     width=weights_e,
@@ -289,7 +289,7 @@ def plot_network(G):
     pos=pos,
     ax=ax
     )
-    ax.set_title('REKT Database ARM Network Graph', fontsize=50)
+    ax.set_title('NetworkX Graph for Association Rules', fontsize=25)
     # ax.set_aspect('equal', 'box')
     # plt.colorbar(cmap)
 
@@ -332,7 +332,6 @@ print("Results\n",len(association_results))
 ```
 
 ```{python}
-#| echo: true
 G = convert_to_network(result_df)
 ```
 
@@ -394,7 +393,6 @@ print("Results\n",len(association_results))
 ```
 
 ```{python}
-#| echo: true
 G = convert_to_network(result_df)
 ```
 
