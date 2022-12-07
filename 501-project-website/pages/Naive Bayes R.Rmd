@@ -251,27 +251,21 @@ As mentioned in the tweets section, in the news section we obtain a more positiv
 
 ![](../images/Python_NB_Train_CM.jpeg)
 
-Accuracy score for Train Predictions:  0.88 
+Accuracy score for Train Predictions:  0.88 \n\n
 
+Recall score for Train Predictions:  0.88 \n\n
 
-Recall score for Train Predictions:  0.88 
-
-
-Precision score for Train Predictions:  0.88 
-
+Precision score for Train Predictions:  0.88 \n\n
 
 F1 score for Train Predictions:  0.88 
 
 ![](../images/Python_NB_Test_CM.jpeg)
 
-Accuracy score for Test Predictions:  0.75 
+Accuracy score for Test Predictions:  0.75 \n\n
 
+Recall score for Test Predictions:  0.75 \n\n
 
-Recall score for Test Predictions:  0.75 
-
-
-Precision score for Test Predictions:  0.80 
-
+Precision score for Test Predictions:  0.80 \n\n
 
 F1 score for Test Predictions:  0.74
 
@@ -280,17 +274,13 @@ F1 score for Test Predictions:  0.74
 
 ![](../images/Python_SVM_Test_CM.jpeg)
 
-Accuracy score:  0.82 
+Accuracy score:  0.82 \n\n
 
+Recall score:  0.82 \n\n
 
-Recall score:  0.82 
+Precision score:  0.82 \n\n
 
-
-Precision score:  0.82 
-
-
-F1 score:  0.82 
-
+F1 score:  0.82 \n\n
 
 Discussion and Conclusions
 ---

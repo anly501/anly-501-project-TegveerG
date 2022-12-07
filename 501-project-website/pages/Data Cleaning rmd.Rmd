@@ -2,28 +2,8 @@
 title: "Data Cleaning"
 output: 
   html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: True
     df_print: paged
 ---
-
-<style>
-a:link {
-    color: black;
-}
-
-a:visited {
-    color: black;
-}
-
- a:hover {
-    color: blue;
-}
-
-</style>
-
 
 [![](../images/data_cleaning.jpeg)](https://www.iteratorshq.com/blog/data-cleaning-in-5-easy-steps/)
 
@@ -54,6 +34,18 @@ For variables identified as Object type, the summary is as follows:
 For variables identified as Float type, the summary is as follows:
 
 *   The `is_verified_source_code` and `is_public_team` variables take on the values of either 0 or 1. Hence, we convert them to category type.
+
+[**Data Cleaning for Classification Tasks:**](https://tegveerg.georgetown.domains/501-project-website/pages/Naive-Bayes-R.html)
+
+If the funds lost is $0, that means the respective observation or record has not much information to offer to us in terms of a Naive Bayes Model. Also, if no funds were lost then no funds can be returned/recovered. Therefore, filtering out the 0 funds_lost observations makes sense if we want balanced classes for our predictor, scam type. 
+
+After filtering out the $0 funds_lost values, 1861 honeypots, 383 rugpulls, and 29 "other" scams are dropped in the process of treating class imbalance. Moreover, no key information, in terms of funds lost or source of the attack, is offered about these removed attacks. We are left with all those rows where funds lost != 0 and where all crypto projects have some key information to offer regarding the extent of the scam, which will be useful in predicting the scam type.
+
+Now we have all records where funds lost != 0 and predictor with balanced classes
+
+As per REKT Database, Honeypot attacks, Rugpull attacks, Abandoned scams, and the Kronos Dao project (classified as "other") can be pooled together as Exit Scams and all other attacks can be pooled together as Exploits. We, therefore, will conduct Naive Bayes with a binary predictor. Moreover, after pooling together the respective scam types and treating predictor imbalance, the class frequencies of our desired target variable is: n(Exit Scam) = 380 and n(Exploit) = 435
+
+We shall also take log of funds_lost and funds_returned to obtain normal distribution assumption for Naive Bayes as well as for better prediction accuracy.
 
 ***Extracting important time-based features for better EDA experience:***
 
@@ -92,5 +84,5 @@ head(rekt_clean, 5)
 [News Text (R Code)](https://github.com/anly501/anly-501-project-TegveerG/blob/main/codes/Data_Cleaning/NEWSAPI_cleaning.Rmd)
 ---
 
-Record data cleaned by subsetting variables that were not useful to EDA or modeling. Only the `author` variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
+News data was cleaned by subsetting variables that were not useful to EDA or modeling. Only the `author` variable has missing values. Moreover, this variable does not provide much insight to our data analysis as the newspaper source is more important. We can drop this variable without losing useful information for my project.
 We must also clean the `source` column using `gsub()` because it contains dictionary values, including 2 keys, in the form of strings. We only need the name of the publishing organization and, hence, string operations will help us parse the column correctly.
